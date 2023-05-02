@@ -65,13 +65,15 @@ export default function Pokemon({
           <p className="text-2xl font-bold text-white">#{pokemonNum()}</p>
         </div>
       </div>
-      <Image
-        src={pokemon.sprites.other?.dream_world.front_default}
-        width={260}
-        height={100}
-        alt={pokemon.name}
-        className="absolute top-28 right-28 h-52 md:right-60 lg:right-1/3"
-      />
+      <div className="grid place-items-center">
+        <Image
+          src={pokemon.sprites.other?.dream_world.front_default}
+          width={260}
+          height={100}
+          alt={pokemon.name}
+          className="absolute top-28 h-52"
+        />
+      </div>
       <div className="bg-white rounded-t-xl pt-5">
         <div className="mb-4">
           <ul className="flex justify-between">
