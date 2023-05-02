@@ -49,7 +49,7 @@ export default function Pokemon({
   };
 
   return (
-    <div className={`${bgCard} container mx-auto`}>
+    <div className={`${bgCard}`}>
       <div className=" h-72">
         <div className="flex justify-between items-center px-2">
           <div>
@@ -70,7 +70,7 @@ export default function Pokemon({
         width={260}
         height={100}
         alt={pokemon.name}
-        className="absolute top-28 right-28 h-52"
+        className="absolute top-28 right-28 h-52 md:right-60 lg:right-1/3"
       />
       <div className="bg-white rounded-t-xl pt-5">
         <div className="mb-4">
