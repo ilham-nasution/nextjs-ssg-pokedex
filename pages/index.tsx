@@ -15,7 +15,7 @@ export default function Home({
           <PokemonCard key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
-      <div className="flex items-center justify-center border-t border-gray-200 bg-white px-4 py-3">
+      <div className="flex items-center justify-center bg-white px-4 py-3">
         <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm">
           <a className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
             <span className="sr-only">Previous</span>
