@@ -25,6 +25,22 @@ export default function PokemonCard({
       bgCard = "bg-blue-600";
       break;
 
+    case "poison":
+      bgCard = "bg-purple-600";
+      break;
+
+    case "electric":
+      bgCard = "bg-yellow-500";
+      break;
+
+    case "ground":
+      bgCard = "bg-amber-600";
+      break;
+
+    case "fairy":
+      bgCard = "bg-pink-600";
+      break;
+
     case "normal":
       bgCard = "bg-gray-600";
       break;
@@ -33,8 +49,9 @@ export default function PokemonCard({
       bgCard = "bg-white";
       break;
   }
+
   return (
-    <Link href={`pokemon/${pokemon.id}`}>
+    <Link href={`/pokemon/${pokemon.id}`}>
       <div className={`${bgCard} rounded-lg p-2 shadow-lg`}>
         <div className="flex justify-center gap-3">
           <div>

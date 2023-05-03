@@ -29,6 +29,22 @@ export default function Pokemon({
       bgCard = "bg-blue-600";
       break;
 
+    case "poison":
+      bgCard = "bg-purple-600";
+      break;
+
+    case "electric":
+      bgCard = "bg-yellow-500";
+      break;
+
+    case "ground":
+      bgCard = "bg-amber-600";
+      break;
+
+    case "fairy":
+      bgCard = "bg-pink-600";
+      break;
+
     case "normal":
       bgCard = "bg-gray-600";
       break;
@@ -201,7 +217,7 @@ export default function Pokemon({
 }
 
 export async function getStaticPaths() {
-  const paths = Array.from({ length: 20 }, (_, i) => i + 1).map((id) => ({
+  const paths = Array.from({ length: 50 }, (_, i) => i + 1).map((id) => ({
     params: { id: id.toString() },
   }));
 
