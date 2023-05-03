@@ -115,7 +115,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { page: number } }) {
   const page = params.page;
   const res = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${
