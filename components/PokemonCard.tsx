@@ -3,52 +3,14 @@ import Link from "next/link";
 
 import PokemonType from "@/components/PokemonType";
 import PokemonInterface from "@/types/PokemonInterface";
+import useBgCard from "@/composables/useBgCard";
 
 export default function PokemonCard({
   pokemon,
 }: {
   pokemon: PokemonInterface;
 }) {
-  let bgCard;
-
-  switch (pokemon.types[0].type.name) {
-    case "grass":
-    case "bug":
-      bgCard = "bg-green-600";
-      break;
-
-    case "fire":
-      bgCard = "bg-red-600";
-      break;
-
-    case "water":
-      bgCard = "bg-blue-600";
-      break;
-
-    case "poison":
-      bgCard = "bg-purple-600";
-      break;
-
-    case "electric":
-      bgCard = "bg-yellow-500";
-      break;
-
-    case "ground":
-      bgCard = "bg-amber-600";
-      break;
-
-    case "fairy":
-      bgCard = "bg-pink-600";
-      break;
-
-    case "normal":
-      bgCard = "bg-gray-600";
-      break;
-
-    default:
-      bgCard = "bg-white";
-      break;
-  }
+  const bgCard = useBgCard(pokemon.types[0]);
 
   return (
     <Link href={`/pokemon/${pokemon.id}`}>

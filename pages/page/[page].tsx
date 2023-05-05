@@ -118,8 +118,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: { params: { page: number } }) {
   const page = params.page;
   const res = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${
-      (params.page - 1) * 10
+    `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${
+      (params.page - 1) * 12
     }`
   );
   const pokemons = await res.json();

@@ -88,7 +88,7 @@ export default function Home({
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+    "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0"
   );
   const pokemons = await res.json();
 
