@@ -42,7 +42,7 @@ export default function Pokemon({
           <p className="text-2xl font-bold text-white">#{pokemonNum()}</p>
         </div>
       </div>
-      <div className="grid place-items-center">
+      <div className="flex justify-center">
         <Image
           src={pokemon.sprites.other?.dream_world.front_default}
           width={260}
@@ -178,7 +178,7 @@ export default function Pokemon({
 }
 
 export async function getStaticPaths() {
-  const paths = Array.from({ length: 50 }, (_, i) => i + 1).map((id) => ({
+  const paths = Array.from({ length: 60 }, (_, i) => i + 1).map((id) => ({
     params: { id: id.toString() },
   }));
 

@@ -15,7 +15,7 @@ export default function PokemonCard({
   return (
     <Link href={`/pokemon/${pokemon.id}`}>
       <div className={`${bgCard} rounded-lg p-2 shadow-lg`}>
-        <div className="flex justify-center gap-3">
+        <div className="flex justify-between">
           <div>
             <p className="font-bold text-white text-center">{pokemon.name}</p>
             {pokemon.types.map((type) => (
