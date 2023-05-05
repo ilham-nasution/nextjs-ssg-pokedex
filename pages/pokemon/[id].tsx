@@ -13,7 +13,50 @@ export default function Pokemon({
   evo: any;
 }) {
   const [tabs, setTabs] = useState("about");
-  const bgCard = useBgCard(pokemon.types[0]);
+  let bgCard;
+
+  switch (pokemon.types[0].type.name) {
+    case "grass":
+    case "bug":
+      bgCard = "bg-green-600";
+      break;
+
+    case "fire":
+      bgCard = "bg-red-600";
+      break;
+
+    case "water":
+      bgCard = "bg-blue-600";
+      break;
+
+    case "poison":
+      bgCard = "bg-purple-600";
+      break;
+
+    case "electric":
+      bgCard = "bg-yellow-500";
+      break;
+
+    case "ground":
+      bgCard = "bg-amber-600";
+      break;
+
+    case "fairy":
+      bgCard = "bg-pink-600";
+      break;
+
+    case "fighting":
+      bgCard = "bg-amber-800";
+      break;
+
+    case "normal":
+      bgCard = "bg-gray-600";
+      break;
+
+    default:
+      bgCard = "bg-white";
+      break;
+  }
 
   const pokemonNum = () => {
     if (pokemon.id?.toString().length === 1) {
@@ -45,10 +88,11 @@ export default function Pokemon({
       <div className="flex justify-center">
         <Image
           src={pokemon.sprites.other?.dream_world.front_default}
-          width={260}
-          height={100}
+          width={208}
+          height={208}
           alt={pokemon.name}
           className="absolute top-28 h-52"
+          priority
         />
       </div>
       <div className="bg-white rounded-t-xl pt-5">

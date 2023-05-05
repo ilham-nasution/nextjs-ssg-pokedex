@@ -3,14 +3,56 @@ import Link from "next/link";
 
 import PokemonType from "@/components/PokemonType";
 import PokemonInterface from "@/types/PokemonInterface";
-import useBgCard from "@/composables/useBgCard";
 
 export default function PokemonCard({
   pokemon,
 }: {
   pokemon: PokemonInterface;
 }) {
-  const bgCard = useBgCard(pokemon.types[0]);
+  let bgCard;
+
+  switch (pokemon.types[0].type.name) {
+    case "grass":
+    case "bug":
+      bgCard = "bg-green-600";
+      break;
+
+    case "fire":
+      bgCard = "bg-red-600";
+      break;
+
+    case "water":
+      bgCard = "bg-blue-600";
+      break;
+
+    case "poison":
+      bgCard = "bg-purple-600";
+      break;
+
+    case "electric":
+      bgCard = "bg-yellow-500";
+      break;
+
+    case "ground":
+      bgCard = "bg-amber-600";
+      break;
+
+    case "fairy":
+      bgCard = "bg-pink-600";
+      break;
+
+    case "fighting":
+      bgCard = "bg-amber-800";
+      break;
+
+    case "normal":
+      bgCard = "bg-gray-600";
+      break;
+
+    default:
+      bgCard = "bg-white";
+      break;
+  }
 
   return (
     <Link href={`/pokemon/${pokemon.id}`}>
@@ -24,10 +66,11 @@ export default function PokemonCard({
           </div>
           <Image
             src={pokemon.sprites.other?.dream_world.front_default}
-            width={70}
-            height={70}
+            width={80}
+            height={80}
             alt={pokemon.name}
-            className="h-24"
+            className="w-20 h-20"
+            priority
           />
         </div>
       </div>
