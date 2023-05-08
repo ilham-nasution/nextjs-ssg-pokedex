@@ -5,6 +5,10 @@ import PokemonType from "@/components/PokemonType";
 import { useState } from "react";
 import useBgCard from "@/composables/useBgCard";
 import usePokemonNum from "@/composables/usePokemonNum";
+import PokemonAbout from "@/components/PokemonAbout";
+import PokemonBaseStats from "@/components/PokemonBaseStats";
+import PokemonEvolution from "@/components/PokemonEvolution";
+import PokemonMoves from "@/components/PokemonMoves";
 
 export default function Pokemon({
   pokemon,
@@ -103,66 +107,16 @@ export default function Pokemon({
         </div>
         <div className="p-4">
           <div className={tabs === "about" ? "show" : "hidden"}>
-            <div className="flex">
-              <p className="text-gray-500 mb-3 w-40">Species</p>
-              <p className="capitalize">{pokemon.species.name}</p>
-            </div>
-            <div className="flex">
-              <p className="text-gray-500 mb-3 w-40">Height</p>
-              <p>{pokemon.height}0 cm</p>
-            </div>
-            <div className="flex">
-              <p className="text-gray-500 mb-3 w-40">Weight</p>
-              <p>{pokemon.weight}0 gram</p>
-            </div>
-            <div className="flex">
-              <p className="text-gray-500 mb-3 w-40">Abilities</p>
-              {pokemon.abilities.map((ability, index) => (
-                <p key={ability.ability.name} className="capitalize">
-                  {index > 0 && ", "}
-                  {ability.ability.name}
-                </p>
-              ))}
-            </div>
+            <PokemonAbout pokemon={pokemon} />
           </div>
           <div className={tabs === "base stats" ? "show" : "hidden"}>
-            {pokemon.stats.map((stat) => (
-              <div key={stat.stat.name} className="flex items-center">
-                <p className="text-gray-500 mb-3 w-56 capitalize">
-                  {stat.stat.name}
-                </p>
-                <p className="w-16">{stat.base_stat}</p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className="bg-green-600 h-2.5 rounded-full"
-                    style={{ width: `${stat.base_stat}%` }}
-                  ></div>
-                </div>
-              </div>
-            ))}
+            <PokemonBaseStats pokemon={pokemon} />
           </div>
           <div className={tabs === "evolution" ? "show" : "hidden"}>
-            <div className="flex gap-5 justify-center text-xl">
-              <p>{evo.chain.species.name}</p>
-              <p>⇢</p>
-              <p>{evo.chain.evolves_to[0].species.name}</p>
-              <p>
-                {evo.chain?.evolves_to[0]?.evolves_to[0]?.species?.name && "⇢"}
-              </p>
-              <p>{evo.chain?.evolves_to[0]?.evolves_to[0]?.species?.name}</p>
-            </div>
+            <PokemonEvolution evo={evo} />
           </div>
           <div className={tabs === "moves" ? "show" : "hidden"}>
-            <div className="grid grid-cols-3 gap-1">
-              {pokemon.moves.slice(0, 12).map((move) => (
-                <p
-                  key={move.move.name}
-                  className="text-center border-2 border-black rounded-xl shadow-md"
-                >
-                  {move.move.name}
-                </p>
-              ))}
-            </div>
+            <PokemonMoves pokemon={pokemon} />
           </div>
         </div>
       </div>
