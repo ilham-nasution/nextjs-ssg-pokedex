@@ -4,6 +4,7 @@ import PokemonInterface from "@/types/PokemonInterface";
 import PokemonType from "@/components/PokemonType";
 import { useState } from "react";
 import useBgCard from "@/composables/useBgCard";
+import usePokemonNum from "@/composables/usePokemonNum";
 
 export default function Pokemon({
   pokemon,
@@ -13,60 +14,8 @@ export default function Pokemon({
   evo: any;
 }) {
   const [tabs, setTabs] = useState("about");
-  let bgCard;
-
-  switch (pokemon.types[0].type.name) {
-    case "grass":
-    case "bug":
-      bgCard = "bg-green-600";
-      break;
-
-    case "fire":
-      bgCard = "bg-red-600";
-      break;
-
-    case "water":
-      bgCard = "bg-blue-600";
-      break;
-
-    case "poison":
-      bgCard = "bg-purple-600";
-      break;
-
-    case "electric":
-      bgCard = "bg-yellow-500";
-      break;
-
-    case "ground":
-      bgCard = "bg-amber-600";
-      break;
-
-    case "fairy":
-      bgCard = "bg-pink-600";
-      break;
-
-    case "fighting":
-      bgCard = "bg-amber-800";
-      break;
-
-    case "normal":
-      bgCard = "bg-gray-600";
-      break;
-
-    default:
-      bgCard = "bg-white";
-      break;
-  }
-
-  const pokemonNum = () => {
-    if (pokemon.id?.toString().length === 1) {
-      return `00${pokemon.id}`;
-    } else if (pokemon.id?.toString().length === 2) {
-      return `0${pokemon.id}`;
-    } else {
-      return `${pokemon.id}`;
-    }
-  };
+  let bgCard = useBgCard(pokemon.types[0]);
+  const pokemonNum = usePokemonNum(pokemon.id);
 
   return (
     <div className={`${bgCard}`}>
@@ -82,7 +31,7 @@ export default function Pokemon({
               ))}
             </div>
           </div>
-          <p className="text-2xl font-bold text-white">#{pokemonNum()}</p>
+          <p className="text-2xl font-bold text-white">#{pokemonNum}</p>
         </div>
       </div>
       <div className="flex justify-center">
