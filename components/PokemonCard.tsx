@@ -56,22 +56,20 @@ export default function PokemonCard({
 
   return (
     <Link href={`/pokemon/${pokemon.id}`}>
-      <div className={`${bgCard} rounded-lg p-2 shadow-lg`}>
+      <div className={`${bgCard} rounded-lg p-2 shadow-lg h-24`}>
+        <p className="font-bold text-white capitalize">{pokemon.name}</p>
         <div className="flex justify-between">
           <div>
-            <p className="font-bold text-white text-center capitalize">
-              {pokemon.name}
-            </p>
             {pokemon.types.map((type) => (
               <PokemonType key={type.type.name} type={type} />
             ))}
           </div>
           <Image
             src={pokemon.sprites.other?.dream_world.front_default}
-            width={80}
-            height={80}
+            width={56}
+            height={56}
             alt={pokemon.name}
-            className="w-20 h-20"
+            className="w-14 h-14"
             priority
           />
         </div>
